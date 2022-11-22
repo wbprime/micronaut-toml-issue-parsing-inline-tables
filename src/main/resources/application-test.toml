@@ -1,0 +1,34 @@
+[micronaut.server]
+port = '${HTTP_PORT:19930}'
+
+[liquibase]
+enabled = false
+
+[gateway.chronicle]
+enabled = false
+data-dir = ''
+
+[gateway.transport-manager]
+enabled = false
+
+[gateway.transport-manager.pools]
+default = { thread-count = 1, queue-length = 678 }
+fix = { thread-count = 1, queue-length = 100 }
+apex = { thread-count = 1, queue-length = 100 }
+
+[gateway.transports.crossing.marketdata.ut-crossing-md]
+enabled = true
+tdf-server1 = '10.23.115.245'
+tdf-port1 = 20007
+tdf-user1 = 'lijiangtao'
+tdf-pwd1 = '888888'
+tdf-server2 = '10.23.115.245'
+tdf-port2 = 20007
+tdf-user2 = 'lijiangtao'
+tdf-pwd2 = '888888'
+max-heartbeat-interval = '10s'
+monitor-symbols = ['600030.SH', '000001.SZ']
+tdf-markets = ['SH-2', 'SZ-1']
+
+
+# vim:set nu ts=2 sw=2 ai si sr et list:

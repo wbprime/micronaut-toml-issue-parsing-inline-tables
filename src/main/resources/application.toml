@@ -1,0 +1,48 @@
+[micronaut.server]
+port = "${HTTP_PORT:19930}"
+
+[micronaut.metrics]
+enabled = true
+
+[micronaut.metrics.export.elastic]
+enabled = true
+step = "PT1S"
+host = "http://172.23.113.131:9200"
+indexDateFormat = "yyyy.MM.dd"
+username = "N/A"
+password = "N/A"
+
+[micronaut.metrics.binders]
+jvm = { enabled = true }
+web = { enabled = true }
+uptime = { enabled = true }
+processor = { enabled = true }
+jdbc = { enabled = true }
+netty = { enabled = true }
+
+[micronaut.executors]
+io = { type = "fixed", n-threads = 2 }
+
+[micronaut.router.static-resources.static]
+enabled = true
+paths = "classpath:/static"
+mapping = "/static/**"
+
+[liquibase]
+enabled = true
+
+[liquibase.datasources.default]
+change-log = "classpath:db/liquibase-changelog.xml"
+contexts = "prod"
+
+[endpoints]
+beans = { enabled = true, sensitive = false }
+info = { enabled = true, sensitive = false }
+threaddump = { enabled = true, sensitive = false }
+metrics = { enabled = true, sensitive = false }
+liquibase = { enabled = true, sensitive = false }
+
+[gateway.chronicle]
+data-dir = ""
+
+# vim:set nu ts=2 sw=2 ai si sr et list:
